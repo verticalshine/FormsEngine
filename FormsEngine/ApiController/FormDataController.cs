@@ -56,13 +56,13 @@ namespace FormsEngine.ApiController
             //         }
             //    }");
 
-            JObject person = JObject.Parse(@value);
+            JObject form = JObject.Parse(@value);
 
             int schemaId = 0;
 
             try
             {
-                schemaId = (int)person["schemaId"];
+                schemaId = (int)form["schemaId"];
             }
             catch
             {
@@ -74,11 +74,11 @@ namespace FormsEngine.ApiController
                               select f.Schema).SingleOrDefault());
 
             IList<string> errorMessages;
-            bool valid = person.IsValid(formSchema, out errorMessages);
+            bool valid = form.IsValid(formSchema, out errorMessages);
 
             if (valid)
             {
-                var formData = new FormData() { TheData = person.ToString() };
+                var formData = new FormData() { TheData = form.ToString() };
                 _db.FormData.Add(formData);
                 _db.SaveChanges();
             }
