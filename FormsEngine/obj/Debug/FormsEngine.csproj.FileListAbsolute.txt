@@ -53,3 +53,6 @@ C:\Users\RobertDu\documents\visual studio 2015\Projects\FormsEngine\FormsEngine\
 C:\Users\RobertDu\Documents\Visual Studio 2015\Projects\FormsEngine\FormsEngine\obj\Debug\FormsEngine.Migrations.Initial.resources
 C:\Users\RobertDu\Documents\Visual Studio 2015\Projects\FormsEngine\FormsEngine\obj\Debug\FormsEngine.csproj.GenerateResource.Cache
 C:\Users\RobertDu\Documents\Visual Studio 2015\Projects\FormsEngine\FormsEngine\obj\Debug\FormsEngine.Migrations.NewOptionsColumn.resources
+C:\Users\RobertDu\Documents\Visual Studio 2015\Projects\FormsEngine\FormsEngine\bin\System.Web.Cors.dll
+C:\Users\RobertDu\Documents\Visual Studio 2015\Projects\FormsEngine\FormsEngine\bin\System.Web.Http.Cors.dll
+C:\Users\RobertDu\Documents\Visual Studio 2015\Projects\FormsEngine\FormsEngine\bin\System.Web.Http.Cors.xml

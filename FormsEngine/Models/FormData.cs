@@ -1,13 +1,12 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using FormsEngine.Serialization;
+using Newtonsoft.Json;
+using System;
 
 namespace FormsEngine.Models
 {
     public class FormData
     {
+        [JsonConverter(typeof(FormConverter))]
         public int Id { get; set; }
         public int Subject { get; set; }
         public int Submitter { get; set; }

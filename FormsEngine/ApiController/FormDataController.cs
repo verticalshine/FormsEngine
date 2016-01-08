@@ -8,9 +8,11 @@ using System.Linq;
 using System.Net;
 using System.Net.Http;
 using System.Web.Http;
+using System.Web.Http.Cors;
 
 namespace FormsEngine.ApiController
 {
+    [EnableCors(origins: "*", headers: "*", methods: "*")]
     public class FormDataController : System.Web.Http.ApiController
     {
         private dbContext _db = new dbContext();
@@ -26,17 +28,13 @@ namespace FormsEngine.ApiController
         {
             var formData = (from f in _db.FormData
                             where f.Id == id
-                            select f.TheData).SingleOrDefault();
+                            select new { f.TheData, f.Form.Id }).SingleOrDefault();
 
-            var formSchema = (from f in _db.Forms
-                              where f.Id == id
-                              select f.Schema).SingleOrDefault();
+            var formStructure = (from f in _db.Forms
+                              where f.Id == formData.Id
+                              select new { f.Schema, f.Options }).SingleOrDefault();
 
-            var formOptions = (from f in _db.Forms
-                              where f.Id == id
-                              select f.Options).SingleOrDefault();
-
-            FormDataOutDto dto = new FormDataOutDto() { FormData = formData, FormSchema = formSchema, FormOptions = formOptions };
+            FormDataOutDto dto = new FormDataOutDto() { FormData = formData.TheData, FormSchema = formStructure.Schema, FormOptions = formStructure.Options };
 
             return dto;
         }
